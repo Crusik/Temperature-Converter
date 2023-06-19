@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Temperature,Celsius,Fahrenheit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
+
+    <script>
+        /*Function to take user input in Celsius and convert it to Fahrenheit
+                Then round it to the nearest tenth. Then display.*/
+        function convertCToF() {
+            /* If input is nothing, then nothing will output. Fixed input being equal to zero by default.
+            I assume there is a better and easier way to do this, but this works for now. */
+            if (document.forms["myTempC"]["degreeC"].value !== '') {
+                var inputTempC = document.forms["myTempC"]["degreeC"].value;
+                var tempF = (inputTempC * 9 / 5 + 32).toFixed(2) + " ℉";
+                console.log(typeof(inputTempC));
+                document.forms["myTempF"]["degreeF"].value = tempF;
+            } else {
+                document.forms["myTempF"]["degreeF"].value = '';
+            }
+        }
+
+        function convertCToK() {
+            // If input is nothing, then nothing will output.accordion
+            if (document.forms["myTempC"]["degreeC"].value !== '') {
+                var inputTempC = document.forms["myTempC"]["degreeC"].value;
+                var tempK = (parseInt(inputTempC) + 273.15).toFixed(2) + " K";
+                document.forms["myTempK"]["degreeK"].value = tempK;
+            } else {
+                document.forms["myTempK"]["degreeK"].value = '';
+            }
+        }
+
+        /*Function to take user input in Fahrenheit and convert it to Celsius
+        Then round it to the nearest tenth. Then display.*/
+        function convertFToC() {
+            /* If input is nothing, then nothing will output. Fixed input being equal to zero by default.
+            I assume there is a better and easier way to do this, but this works for now. */
+            if (document.getElementById('degreeF').value !== '') {
+                var inputTempF = document.getElementById("degreeF").value;
+                var tempC = ((inputTempF - 32) / 1.8).toFixed(2) + " ℃";
+                document.getElementById("degreeC").value = tempC;
+            } else {
+                document.getElementById('degreeC').value = '';
+            }
+        }
+
+        function convertFToK() {
+            // If input is nothing, then nothing will output.
+            if (document.getElementById('degreeF').value !== '') {
+                var inputTempF = document.getElementById("degreeF").value;
+                var tempK = ((inputTempF - 32) * 5 / 9 + 273.15).toFixed(2) + " K";
+                document.getElementById("degreeK").value = tempK;
+            } else {
+                document.getElementById('degreeK').value = '';
+            }
+        }
+
+        function convertKToC() {
+            if (document.getElementById('degreeK').value !== '') {
+                var inputTempK = document.getElementById("degreeK").value;
+                var tempC = inputTempK - 273.15.toFixed(2) + " ℃";
+                document.getElementById("degreeC").value = tempC;
+            } else {
+                document.getElementById('degreeC').value = '';
+            }
+        }
+
+        function convertKToF() {
+            // If input is nothing, then nothing will output.
+            if (document.getElementById('degreeK').value !== '') {
+                var inputTempK = document.getElementById("degreeK").value;
+                var tempF = ((parseInt(inputTempK) - 273.15) * 9 / 5 + 32).toFixed(2) + " ℉";
+                document.getElementById("degreeF").value = tempF;
+            } else {
+                document.getElementById('degreeF').value = '';
+            }
+        }
+    </script>
+    <title>Temperature Converter Round 2</title>
+</head>
+
+<body>
+    <div>
+        <h1 class="header">Temperature Converter</h1>
+    </div>
+    <div class="form__group field">
+        <form name="myTempC">
+            <input oninput="convertCToF(), convertCToK();" type="" class="form__field degreeC" name="degreeC" placeholder="Name" id='degreeC' required />
+            <label for="degreeC" class="form__label">Celsius</label>
+        </form>
+    </div>
+    <div class="form__group field">
+        <form name="myTempF">
+            <input oninput="convertFToC(), convertFToK();" type="" class="form__field degreeF" name="degreeF" placeholder="Name" id='degreeF' required />
+            <label for="degreeF" class="form__label">Fahrenheit</label>
+        </form>
+    </div>
+    <div class="form__group field">
+        <form name="myTempK">
+            <input oninput="convertKToF(), convertKToC();" type="" class="form__field degreeK" name="degreeK" placeholder="Name" id='degreeK' required />
+            <label for="degreeK" class="form__label">Kelvin</label>
+        </form>
+    </div>
+</body>

@@ -1,0 +1,97 @@
+html {
+    height: 100%;
+    font-family: 'Arvo', serif;
+}
+
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 35%;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #7c7c7c;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown~.form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 25px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #7c7c7c;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #065cdd, #0efdfd);
+    border-image-slice: 1;
+}
+
+.form__field:focus~.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #065cdd;
+    font-weight: 700;
+}
+
+body {
+    font-family: 'Arvo', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    margin-top: 100px;
+    align-items: center;
+    height: cover;
+    font-size: 1.5rem;
+    background-image: linear-gradient(top, rgb(0, 0, 0) 0%, rgb(25, 25, 82) 99%, rgb(74, 74, 208) 99%, rgb(74, 74, 208) 100%);
+    background-image: -moz-linear-gradient(center top, rgb(0, 0, 0) 0%, rgb(25, 25, 82) 99%, rgb(74, 74, 208) 99%, rgb(74, 74, 208) 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.000, rgb(0, 0, 0)), color-stop(1.000, rgb(25, 25, 82)), color-stop(1.000, rgb(74, 74, 208)), color-stop(1.000, rgb(74, 74, 208)));
+    ;
+}
+
+h1 {
+    color: #afafaf;
+    font-family: 'Arvo', serif;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
